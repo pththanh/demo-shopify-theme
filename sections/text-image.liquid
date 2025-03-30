@@ -1,0 +1,44 @@
+{% schema %}
+    {
+      "name": "Metaobject Block",
+      "blocks": [
+        {
+          "type": "metaobject_block",
+          "name": "Metaobject Block",
+          "settings": [
+            {
+                "type": "text",
+                "id": "metaobject_handle",
+                "label": "Metaobject Handle",
+                "default": "text-image-1"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Metaobject Block",
+          "category": "Custom"
+        }
+      ]
+    }
+{% endschema %}
+
+
+<div class="metaobject-blocks">
+  {% for block in section.blocks %}
+    {% assign metaobject = block.settings.metaobject_handle | metaobject %}
+  <h2>{{ metaobject.title }}</h2>
+    {% if metaobject != blank %}
+      <div class="metaobject-item">
+        <h2>{{ metaobject.title }}</h2>
+        {% if metaobject.image %}
+          <img src="{{ metaobject.image | image_url: width: 500 }}" alt="{{ metaobject.title }}">
+        {% endif %}
+        <p>{{ metaobject.description }}</p>
+      </div>
+    {% else %}
+      <p>No metaobject data found.</p>
+    {% endif %}
+  {% endfor %}
+</div>
