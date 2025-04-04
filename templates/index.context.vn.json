@@ -12,5 +12,14 @@
   "context": {
     "market": "vn"
   },
-  "sections": {}
+  "sections": {},
+  "order": [
+    "image_banner",
+    "rich_text",
+    "featured_collection",
+    "text_image_zdADWb",
+    "collage",
+    "video",
+    "multicolumn"
+  ]
 }

@@ -12,5 +12,11 @@
   "context": {
     "market": "vn"
   },
-  "sections": {}
+  "sections": {
+    "main": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    }
+  }
 }
