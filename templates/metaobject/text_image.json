@@ -8,6 +8,56 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {},
-  "order": []
+  "sections": {
+    "image_with_text_V4kftj": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_F8BXfB": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ metaobject.title.value }}",
+            "heading_size": "h1"
+          }
+        },
+        "text_h34xXg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ metaobject.description.value }}</p>",
+            "text_style": "body"
+          }
+        },
+        "button_ADAXLf": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_F8BXfB",
+        "text_h34xXg",
+        "button_ADAXLf"
+      ],
+      "settings": {
+        "image": "{{ metaobject.image.value }}",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_with_text_V4kftj"
+  ]
 }
