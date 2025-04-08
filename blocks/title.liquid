@@ -1,0 +1,69 @@
+
+
+
+{% stylesheet %}
+
+  .title-block {
+    font-size: 72px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.2;
+    margin: 24px 0;
+    letter-spacing: -0.02em;
+  }
+
+  @media screen and (max-width: 768px) {
+    .title-block {
+      font-size: 48px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .title-block {
+      font-size: 36px;
+    }
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+{% endstylesheet %}
+
+<h2 class="title-block text-{{ block.settings.alignment }}">
+  {{ block.settings.title_meta.title }}
+</h2>
+
+{% schema %}
+{
+  "name": "Custom Title Metaobject",
+  "settings": [
+    {
+      "type": "metaobject",
+      "id": "title_meta",
+      "label": "Title",
+      "metaobject_type": "holiday_season"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Alignment",
+    },
+  ],
+  "presets": [
+    {
+      "name": "Custom Title Metaobject",
+      "settings": {
+        "title_meta": "Hello, world!"
+      }
+    }
+  ]
+}
+{% endschema %}

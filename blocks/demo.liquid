@@ -1,0 +1,22 @@
+
+<div>{{ block.settings.title }}</div>
+
+{% schema %}
+{
+  "name": "Demo",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Hello This is Liquid content",
+      "info": "This is a demo block"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Demo block"
+    }
+  ]
+}
+{% endschema %}

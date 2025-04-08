@@ -1,0 +1,39 @@
+{% schema %}
+{
+  "name": "Title",
+  "tag": "section",
+  "class": "custom-title",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "metaobject",
+      "id": "title",
+      "label": "Title",
+      "metaobject_type": "holiday_season"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "title",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "metaobject", 
+          "id": "title_meta",
+          "label": "Title",
+          "metaobject_type": "holiday_season"
+        },
+        {
+          "type": "text_alignment",
+          "id": "alignment",
+          "label": "Alignment"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

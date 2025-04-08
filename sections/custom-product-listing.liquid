@@ -1,0 +1,84 @@
+{%- style -%}
+.custom-product-listing {
+    padding: 2rem;
+}
+
+.custom-product-listing-item {
+    margin-bottom: 2rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.custom-product-listing-item-inner {
+    padding: 1rem;
+}
+
+.custom-product-listing-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+{%- endstyle -%}
+
+<div class="custom-product-listing">
+    <!-- Debug Information -->
+    <div style="background: #f3f4f6; padding: 1rem; margin-bottom: 2rem; border-radius: 0.5rem;">
+        <h3 style="margin-bottom: 1rem;">Debug Information:</h3>
+        <p>Section Settings: {{ section.settings | json }}</p>
+        <p>Holiday Season ID: {{ section.settings.holiday_season }}</p>
+        
+        {% assign holiday_season = shop.metaobjects.holiday_season[section.settings.holiday_season] %}
+        <p>Holiday Season Metaobject: {{ holiday_season | json }}</p>
+        
+        <p>Holiday Season Products: {{ holiday_season.products.value.products }}</p>
+        {% for product_gid in holiday_season.products.value.products %}
+            {% assign product_id = product_gid | split: '/' | last %}
+            {% assign product = shop.products[product_id] %}
+            <p>Product GID: {{ product_gid }}</p>
+            <p>Product ID: {{ product_id }}</p>
+            <p>Product Data: {{ product | json }}</p>
+        {% endfor %}
+    </div>
+
+    {% assign product_listing = holiday_season.products.value %}
+    {% for product_gid in product_listing.products %}
+        {% assign product_id = product_gid | split: '/' | last %}
+        {% assign product = shop.products[product_id] %}
+        <div class="custom-product-listing-item">
+            <div class="custom-product-listing-item-inner">
+                {% if product.featured_image %}
+                    <img 
+                        src="{{ product.featured_image | image_url: width: 400 }}" 
+                        alt="{{ product.title | default: 'Product image' }}"
+                        width="400"
+                        height="400"
+                        loading="lazy"
+                    >
+                {% endif %}
+                <h2 class="text-xl font-semibold mt-4">{{ product.title }}</h2>
+                <p class="text-gray-600">{{ product.price | money }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% schema %}
+{
+    "name": "Custom Product Listing",
+    "settings": [
+        {
+            "type": "metaobject",
+            "id": "holiday_season",
+            "label": "Holiday Season",
+            "info": "Select the holiday season to display in the listing",
+            "metaobject_type": "holiday_season"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Custom Product Listing"
+        }
+    ]
+}
+{% endschema %}
