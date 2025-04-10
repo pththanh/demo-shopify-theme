@@ -20,10 +20,18 @@
             "text": "Welcome to our store",
             "link": ""
           }
+        },
+        "announcement_WRLHmA": {
+          "type": "announcement",
+          "settings": {
+            "text": "holiday season",
+            "link": ""
+          }
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "announcement-bar-0",
+        "announcement_WRLHmA"
       ],
       "settings": {
         "auto_rotate": false,
