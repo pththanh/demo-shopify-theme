@@ -533,5 +533,13 @@
       "expanded": "Đã mở rộng biểu mẫu người nhận thẻ quà tặng",
       "collapsed": "Đã thu nhỏ biểu mẫu người nhận thẻ quà tặng"
     }
+  },
+  "customer_accounts": {
+    "knowledge_base": {
+      "self_serve_returns": {
+        "enabled": "Khách hàng có thể yêu cầu và quản lý việc trả hàng của chính họ.",
+        "disabled": "Khách hàng phải liên hệ với người bán để yêu cầu trả hàng."
+      }
+    }
   }
 }
